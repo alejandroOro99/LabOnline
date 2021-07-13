@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const mongoose = require('mongoose');
+const cors = require('cors');
+require('dotenv/config');
+
+const loginRoute = require('./routes/login');
+app.use('/login',loginRoute);
+app.use(cors());
 
 app.get('/',(req,res)=>{
     res.send('Welcome');
@@ -8,3 +15,11 @@ app.get('/',(req,res)=>{
 app.listen(port, ()=>{
     console.log(`Listening on port: ${port}`);
 });
+
+//Connect to DB
+mongoose.connect(
+    process.env.DB_CONNECTION//use .env file for url hiding of database connection
+    , { useNewUrlParser: true }, () => {
+        console.log('connected to DB');
+    }
+);
