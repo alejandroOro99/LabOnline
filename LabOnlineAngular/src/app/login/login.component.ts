@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { User } from '../User';
+import {UpperCasePipe} from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService) { }
 
+  helloMessage = "hello";
   ngOnInit(): void {
   }
 
   login(){
-    this.loginService.login(new User('Ale','yolo')).subscribe(res=>console.log(res));
+    this.loginService.login(new User('Ale','yolo', 'Alejandro', 'Orozco')).subscribe(res=>console.log(res));
   }
 }

@@ -14,7 +14,9 @@ router.post('/',(req,res)=>{
     console.log(req.body);
     const user = new User({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
     });
 
     user.save()
@@ -23,6 +25,7 @@ router.post('/',(req,res)=>{
     })
     .catch(err=>{
         res.json({message: err});
+        console.log(err);
     });
 });
 
