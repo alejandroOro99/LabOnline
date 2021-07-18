@@ -10,6 +10,11 @@ import {UpperCasePipe} from '@angular/common';
 })
 export class LoginComponent implements OnInit {
 
+  public username = '';
+  public password = '';
+  public name = '';
+  public lastName = '';
+
   constructor(private loginService: LoginService) { }
 
   helloMessage = "hello";
@@ -17,6 +22,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.loginService.login(new User('Ale','yolo', 'Alejandro', 'Orozco')).subscribe(res=>console.log(res));
+    this.loginService.login(
+      new User(this.username, this.password, this.name, this.lastName))
+      .subscribe(res=>console.log(res));
   }
 }
