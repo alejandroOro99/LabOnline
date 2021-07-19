@@ -6,7 +6,10 @@ const cors = require('cors');
 require('dotenv/config');
 
 const loginRoute = require('./routes/login');
+const localsRoute = require('./routes/locals');
+
 app.use('/login',loginRoute);
+app.use('locals',localsRoute);
 app.use(cors());
 
 app.get('/',(req,res)=>{

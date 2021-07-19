@@ -12,6 +12,10 @@ const LocalsSchema = mongoose.Schema({
     tests:{
         type: String,
         required: false
+    },
+    numberOfStaff:{
+        type: Number,
+        required: false
     }
 });
 
